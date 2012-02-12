@@ -1,26 +1,91 @@
-<html>
-<head>
-	<title>Simple HTML5 History</title>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Simple HTML5 history</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    
 	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
 	<script type="text/javascript" src="history.html5.js"></script>
+	<script type="text/javascript" src="google-code-prettify/prettify.js"></script>
 	<script type="text/javascript">
 		$(document).ready(function() {
 			History.Init();
+			
+			// make code pretty
+		    window.prettyPrint && prettyPrint();
 		});
 	</script>
-
+	
+	<link href="css/bootstrap.css" rel="stylesheet">
+    <link href="css/bootstrap-responsive.css" rel="stylesheet">
+    <link href="css/docs.css" rel="stylesheet">
+    <link href="google-code-prettify/prettify.css" rel="stylesheet">
+    <style type="text/css">
+    	body {
+    		padding-top: 25px;
+    	}
+    </style>
 </head>
 
 <body>
-	<br><br>
-	<a rel="history" href="link-one">Link One</a> | 
-	<a rel="history" href="link-two">Link Two</a> | 
-	<a rel="history" href="link-three">Link Three</a> | 
-	<a rel="history" href="link-four">Link Four</a> | 
-	<a rel="history" href="link-five">Link Five</a> | 
-	<a rel="history" href="link-six">Link Six</a>
 	
-	<ul id="log"></ul>
+	<div class="container" id="Inspect">
+		<!-- Main hero unit for a primary marketing message or call to action -->
+      <div class="hero-unit">
+        <h1>Simple HTML5 history object</h1>
+        <br>
+        <p>Inspired by <a href="https://github.com/jzaefferer/simple-history" target="_blank">Jörn Zaefferer's simple history</a>, 
+this is a very simple, but slightly more robust Javascript library using HTML5 history.pushstate. This library does not have support for hashes (non-html5), but stubs are created in places where this would go. 
+
+There are various libraries for hash history available. Try checking out <a href="http://www.serpere.info/jquery-history-plugin/samples/">jQuery history plugin</a> or for support of both, see <a href="https://github.com/balupton/History.js/">History.js</a></p>
+        <br>
+        
+        To init the history event, add `rel="history"` to any tag like
+        <pre class="prettyprint linenums">
+&lt;a rel="history" href="link-one"&gt;Link One&lt;/a&gt;</pre>
+        
+        <pre class="prettyprint linenums">
+$(document).ready(function() {
+	History.Init();
+});</pre>
+        
+        <h2>Demo</h2>
+  <div class="navbar">
+    <div class="navbar-inner">
+      <div class="container" style="width: auto;">
+        <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </a>
+        <div class="nav-collapse">
+          <ul class="nav">
+            <li><a rel="history" href="Home">Home</a></li>
+            <li><a rel="history" href="link-one">Link One</a></li>
+            <li><a rel="history" href="link-two">Link Two</a></li>
+            <li><a rel="history" href="link-three">Link Three</a></li>
+            <li><a rel="history" href="link-four">Link Four</a></li>
+            <li><a rel="history" href="link-five">Link Five</a></li>
+            <li><a rel="history" href="link-six">Link Six</a></li> 
+          </ul>
+          
+        </div><!-- /.nav-collapse -->
+      </div>
+    </div><!-- /navbar-inner -->
+    
+    <br><br>
+    <ul id="log"></ul>
+    
+  </div>
+   
+	
+	
 </body>
 
 </html>
